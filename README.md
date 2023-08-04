@@ -15,6 +15,7 @@ Complete the "Choose a Topic" survey in iLearn and paste the details here.
 * Item and enemy procedural generation.
 * Distributed biome generation.
 * Dungeon generation tools.
+* Seed generation and uses - WTF is a seed and how do they work
 
 *Potential Project 1:*
 
@@ -33,6 +34,10 @@ Begin by creating an algortihm that generates a floor plan without thinking abou
 You need to have accepted this assignment repo and made a post here identifying a resource relevant to your topic.
 
 https://openresearch-repository.anu.edu.au/bitstream/1885/205015/5/FDG20_PCG-submitted.pdf
+
+**IDEAS from this week**:
+
+A dungeon in an elemental driven game where difficulty is a stat and chnages in this stat drive the enemy generation which would contrast the player's chosen element.
 
 
 
