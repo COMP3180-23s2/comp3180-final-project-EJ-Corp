@@ -35,6 +35,8 @@ You need to have accepted this assignment repo and made a post here identifying 
 
 https://openresearch-repository.anu.edu.au/bitstream/1885/205015/5/FDG20_PCG-submitted.pdf
 
+DDA - Dinamyc difficulty adjustment  bc
+
 **IDEAS from this week**:
 
 A dungeon in an elemental driven game where difficulty is a stat and chnages in this stat drive the enemy generation which would contrast the player's chosen element.
