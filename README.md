@@ -33,13 +33,60 @@ Begin by creating an algortihm that generates a floor plan without thinking abou
 
 You need to have accepted this assignment repo and made a post here identifying a resource relevant to your topic.
 
+**Main Relevant Source:**
+
+*A Hybrid Approach to Procedural Generation of Roguelikes Video Game Levels* - Article by Alexander Gellel & Penny Sweetser:
+
 https://openresearch-repository.anu.edu.au/bitstream/1885/205015/5/FDG20_PCG-submitted.pdf
+
+**Result From Source:**
+
+As a result fo the source above, I've started to get a clear idea on how to tackle and structure my project. I've been summarising and document the stuff I find useful fomr the article within a document in the repo "Approaches to Proc Gen", for further information refer to that document.
+
+**Final Project Idea** - *(As of Now)*:
+
+To create an algorithm which procedurally generates a dungeon for an elemental driven game where difficulty is an ever changing statistic which is influenced by the players' actions. The algorithm will utilise the player's chosen element and combine it with the difficulty statistic to generate the level in a manner which creates a reactive feel to the gameplay.
+
+*Example:*
+
+If the player is utilising the FIRE element, the game would use a simple *Rock, Paper, Scissor* system to match the difficulty stat to the chosen element and generate the level accordingly. So if the difficulty stat were to be higher, then the algorithm would spawn more WATER obtacles and enemies since fire is weak to water.
+
+**Initial Project Stages / Roadmap:**
+
+*Stage 1:*
+
+Research & prototype a few common dungeon generating algoriths and choose the one I feel will be more useful for my porpuses. This will be based on how well I underatnd it, how well I can modify it, and how scalable it is.
+
+*Stage 2:*
+
+Develop a simple difficulty statistic and the element system. Perhaps develop a small player stat system so that other variables can influence the level generation (Such as health, currency & items --- if diffulty == hard -> needed resource = hard to find).
+
+*Stage 3:*
+
+Utilise the difficulty and element systems to populate the dungeon that gets generated, based on the chosen element and current difficulty stat. E.G: 
+* Fire Element + Hard Difficulty = More Water Hazards
+* Water Element + Easy Difficulty = More Fire Hazards
+* Grass Element + Neutral Difficulty = Mix of Neutral Hazards
+
+*Stage 4:*
+
+Thorougly test the systems in place and the project at this point in development. If errors are encountered, fix them here before continuing.
+
+*Stage 5 (if time allows):*
+
+Utilise the other player stats to populate the dugeon with special rooms in a manner which purposely help or hurt the player depending on the difficulty stat. This means more locked doors when higher difficulty and low in keys, or more healing rooms when low in health and easy difficulty.
+
+**Things to look into:**
 
 DDA - Dinamyc difficulty adjustment  bc
 
 **IDEAS from this week**:
 
 A dungeon in an elemental driven game where difficulty is a stat and chnages in this stat drive the enemy generation which would contrast the player's chosen element.
+
+**What to Come Up With:**
+
+Keep coming up with ways to influence the level generation in a manner which makes the levels feel reactive to the player's situation.
 
 
 
