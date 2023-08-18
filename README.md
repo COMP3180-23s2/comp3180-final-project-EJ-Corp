@@ -101,19 +101,31 @@ If the player is utilising the FIRE element, the game would use a simple *Rock, 
 This week I will focus in beggining to attempt to protype some different algorithms to see how well I can understand them and implement them. This should help me discover which algortihm I wish to use and expand on it.
 
 **Initial Prototypes:**
+
 To begin this process, I reserached how the original 'Binding of Isaac' did it and attempted to recreate the basic algorithm (Check unity project for progress). I utilised an online article which goes in depth on how the original flash game did it.
 
-Explain the prototype:
-
 *Article:* https://www.boristhebrave.com/2020/09/12/dungeon-generation-in-binding-of-isaac/
-
-*Explanation goes here*
-
 
 As I began to attempt my implementation, I quickly felt like I was overcomplicating things, which was slowing down my prgress, and thus decided to research a bit more. By doing so I stumbled upon a youtube tutorial which goes over how to generate a level of similar nature to the binding of isaac. I followed the simple tutorial to get me started and now plan on altering the algorithm to make it fit my requirements.
 
 *Video:* https://www.youtube.com/watch?v=qAf9axsyijY&t=3s
 
+As a result of both the video and the article I now have a prototype which generates a very simple dungeon in steps. We'll call this prototype the 'Isaac' prototype. The prototype works in the following manner:
+
+* Firstly the protoype functions around having a database of possible rooms with dfferent door locations. These roms are created in unity and each room is of the same size. Additionally, each door within the room has a spawn point which will be responsible of generating the connecting room.
+
+* Upon start each spawn point has an opening direction which corresponds to the direction in which the new room would need an opening (this connects two rooms together). The algorithm then takes this opening direction and utilises it to randomly select one of the rooms in the database which has an opening in that direction.
+
+* Once a room is selected, that room is instantiated at the position of the spawn point. This means that the spawnpoint has done its job.
+
+* As a result of a new room being instatiated, if the chosen room has more than the one opening, this also means that a new spawn point is instatiated and thus this spawnpoint will choose a new room and repeat the process.
+
+**Thoughts on Algorithm:**
+
+Initially, this algorithm seems to be incredibly simple and effective. It gets the job done and it does it in a relativelly simple manner. However, there are various problems which concern me.
+
+*Problems:*
+ nk
 
 
 ## Week 5 - Presentations
