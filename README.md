@@ -134,6 +134,32 @@ Initially, this algorithm seems to be incredibly simple and effective. It gets t
 
 ## Week 7 - Finalising your Research Report
 
+Its been a few weeks since I last documented any progress, so here is what I've been working on:
+
+*Part One - Presentation:*
+
+Firstly I focused on getting my presesntation video going. To do this I focused on reflecting on my work and previous discussions. This helped me rescope and narrow down my project idea.
+
+For more on this check the preso in the documentation folder.
+
+*Part Two - Messing Around With My Learnings:*
+
+After the presentations, I had a deadline for another project (COMP3151) which was apporaching fast. I saw this as an opportunity to try and use some of my learnings and utilise them to create some procedural level generation which was kinda similar to what I want to produce.
+
+During this week, I worked together with one of my team memeber to get proc gen working. This was increadibly helpful as my team member had some previous experience with the topic and we were able to work together to create a working algortihm.
+
+The algorithm is basic and unrefined, but it accomplished our goals. However, as relevance to this project goes only the framework applies here, as the goals of that algorithm are different to what I plan to achieve.
+
+For more information, check the COMP3151 repository, and the added screenshots within the documentation folder. **Add Screeenies to the folder**
+
+*Part Three - Research Report:*
+
+Finally, I've been working on taking on the feedback recieved during my presentation, and do a bit more research to fill in my research report. 
+
+The goal here is to find a few more quality sources that will help me understand a couple more techniques for achieving proc gen, and to use this new knowledge as well as the feedback I got to create a more refined goal with specific deliverables.
+
+This should help me to get a clear roadmap, and then development will begin.
+
 ## Mid-semster break 1
 
 ## Mid-semster break 2
