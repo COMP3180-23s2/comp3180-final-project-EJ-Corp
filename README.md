@@ -172,6 +172,14 @@ This should help me to get a clear roadmap, and then development will begin.
 
 ## Week 11 - Evaluation
 
+**Things to Rememeber**
+
+Try and find developers to test my tool
+
+Need humna evaluation for everyone to be happy
+
+
+
 ## Week 12 - Evaluation
 
 ## Week 13 - Finalising your Project Report and Deliverables
