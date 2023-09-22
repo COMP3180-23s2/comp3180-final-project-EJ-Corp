@@ -163,6 +163,7 @@ This should help me to get a clear roadmap, and then development will begin.
 ## Mid-semster break 1
 
 ## Mid-semster break 2
+During this time, I utilised the opportunity of the MACS GameJam to attempt and create some algorithm that procedurally generate mazes and levels. I got most of them working just need to connect the grid algorithm and fix the infinite spawning of the maze algorithm. For better checks look at game jam repo.
 
 ## Week 8 - Developing your Project
 
