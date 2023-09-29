@@ -167,6 +167,19 @@ During this time, I utilised the opportunity of the MACS GameJam to attempt and 
 
 ## Week 8 - Developing your Project
 
+**Reserach Report Feedback:**
+
+Most of the feedback is around the lack of detail on evaluation.
+    
+Questions:
+    Final Project Report - What would be a better success measurement?
+
+    Context Free Grammar - A grammar isnt code. Grammars are a common technique in software engineering, basically a set of rules (recursive) used to generate patterns. In my case this will be the template/loose generation rules the algorith should follow.
+
+    
+
+    
+
 ## Week 9 - Developing your Project
 
 ## Week 10 - Developing your Project
