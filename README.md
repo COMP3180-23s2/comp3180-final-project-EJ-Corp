@@ -176,7 +176,13 @@ Questions:
 
     Context Free Grammar - A grammar isnt code. Grammars are a common technique in software engineering, basically a set of rules (recursive) used to generate patterns. In my case this will be the template/loose generation rules the algorith should follow.
 
-    
+        DOcumenting supplemeting this on how to translate it for people unfamiliar with grammars.
+
+        Evaluation:
+            Write everything down - look outside all food if nothing happens
+            plan ahead.
+
+
 
     
 
