@@ -188,6 +188,15 @@ Questions:
 
 ## Week 9 - Developing your Project
 
+This week was spent on analysing the intial steps in the previous prototypes (mid sem break ones). The goal was to iron out any spag code and to begin the room stitching desing process. As a result I reckon I will attempt to achieve stitching based off math to the nearest room. Addionally, there have been a few kinks that need to be solved before we get to the stitching.
+
+Issues Found:
+
+* Doors to the void (outside grid)
+* 3D space messing with collision (infinite loop)
+
+However, I've also noticed that I'm getting ahead of myself and that I need to explore cellular automaton before I start tackling this. Therefore, the next steps is to utilise my reaserach and attempt to create a cellualr automata first.
+
 ## Week 10 - Developing your Project
 
 ## Week 11 - Evaluation
