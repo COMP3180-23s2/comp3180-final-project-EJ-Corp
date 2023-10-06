@@ -205,6 +205,10 @@ __WFC:__
 
 * Realised I never went back to fix the issues left with the algorithm. Therefore, I need to fix rooms leading to the void as well as rooms closing other rooms off - making them unaccessable.
 
+**Cellular Automaton:**
+
+* Upon looking up a guide on how to create a cellular automata I realised that the guide I planned to follow utilizes 
+
 ## Week 11 - Evaluation
 
 **Things to Rememeber**
