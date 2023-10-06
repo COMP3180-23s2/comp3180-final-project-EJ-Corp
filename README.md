@@ -179,7 +179,7 @@ Questions:
         DOcumenting supplemeting this on how to translate it for people unfamiliar with grammars.
 
         Evaluation:
-            Write everything down - look outside all food if nothing happens
+            Write everything down - look outside all good if nothing happens
             plan ahead.
 
 
@@ -198,6 +198,12 @@ Issues Found:
 However, I've also noticed that I'm getting ahead of myself and that I need to explore cellular automaton before I start tackling this. Therefore, the next steps is to utilise my reaserach and attempt to create a cellualr automata first.
 
 ## Week 10 - Developing your Project
+
+**Roadblocks:**
+
+__WFC:__
+
+* Realised I never went back to fix the issues left with the algorithm. Therefore, I need to fix rooms leading to the void as well as rooms closing other rooms off - making them unaccessable.
 
 ## Week 11 - Evaluation
 
