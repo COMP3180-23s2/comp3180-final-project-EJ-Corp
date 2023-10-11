@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    [SerializeField] public GameObject[] neighbours;
+    [SerializeField] public GameObject[] neighbours = new GameObject[8];
     // Start is called before the first frame update
     void Start()
     {

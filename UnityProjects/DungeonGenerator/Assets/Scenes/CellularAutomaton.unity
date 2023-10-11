@@ -239,7 +239,7 @@ MonoBehaviour:
   width: 100
   height: 100
   density: 60
-  floorTile: {fileID: 6743696492454797972, guid: 825c623e40df73b4694de652fbd29fc7, type: 3}
+  floorTile: {fileID: 5576174507379057153, guid: 825c623e40df73b4694de652fbd29fc7, type: 3}
   wallTile: {fileID: 3888511423275192915, guid: 5b5f48da7afc4c448b3f5ebe3c9debd8, type: 3}
 --- !u!4 &1356034545
 Transform:

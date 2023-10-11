@@ -22,6 +22,7 @@ public class NeighbourChecker : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         GameObject collided = other.gameObject;
 
+        Debug.Log(position + "collided");
         if(cellLayer.Contains(collided))
         {
             parentCell.neighbours[position] = collided;

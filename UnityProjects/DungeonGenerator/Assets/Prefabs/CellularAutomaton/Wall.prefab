@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2532950123468860119
 Transform:
   m_ObjectHideFlags: 0
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &7919883909748162491
 MonoBehaviour:
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 3
+  position: 2
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3388097307282490507
 Transform:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &6426809494370234281
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 7
+  position: 6
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5878535380933741116
 Transform:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &1761692963509893893
 MonoBehaviour:
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 5
+  position: 4
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9216507347554246592
 Transform:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &5086950545578142378
 MonoBehaviour:
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 1
+  position: 0
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -314,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3888511423275192917}
   - component: {fileID: 3888511423275192916}
+  - component: {fileID: 1016714583}
   - component: {fileID: 666271574361361150}
   - component: {fileID: 5953806772966046625}
   m_Layer: 6
@@ -398,6 +399,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1016714583
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888511423275192915}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &666271574361361150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -408,7 +430,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -436,7 +458,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3a709a3675d5e4e909749f8ff17fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbours: []
+  neighbours:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4174434695005148113
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3860554978979407573
 Transform:
   m_ObjectHideFlags: 0
@@ -494,7 +524,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &6514075430073646711
 MonoBehaviour:
@@ -508,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 4
+  position: 3
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -530,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2836444511084188877
 Transform:
   m_ObjectHideFlags: 0
@@ -570,7 +600,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &4440166768777902099
 MonoBehaviour:
@@ -584,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 2
+  position: 1
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -606,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2887673141792346519
 Transform:
   m_ObjectHideFlags: 0
@@ -646,7 +676,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &6070467878094566225
 MonoBehaviour:
@@ -660,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 8
+  position: 7
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -682,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2825488146424459512
 Transform:
   m_ObjectHideFlags: 0
@@ -722,7 +752,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &6903951065090645100
 MonoBehaviour:
@@ -736,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67534aff300332479a30b355ebf145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 6
+  position: 5
   cellLayer:
     serializedVersion: 2
     m_Bits: 64
