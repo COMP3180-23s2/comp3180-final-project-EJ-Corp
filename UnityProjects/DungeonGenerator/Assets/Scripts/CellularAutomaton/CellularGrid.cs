@@ -11,17 +11,11 @@ public class CellularGrid : MonoBehaviour
     [SerializeField] private GameObject floorTile;
     [SerializeField] private GameObject wallTile;
 
-    [SerializeField] private Cell[,] cells;
-
-    [SerializeField] private Transform spawnPos;
-    [SerializeField] private Vector2 spawnShift;
-    // Start is called before the first frame update
     void Start()
     {
         GenerateGrid();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
