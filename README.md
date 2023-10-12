@@ -207,7 +207,11 @@ __WFC:__
 
 **Cellular Automaton:**
 
-* Upon looking up a guide on how to create a cellular automata I realised that the guide I planned to follow utilizes 
+* Upon looking up a guide on how to create a cellular automata I realised that the guide I planned to follow utilizes a different game engine and a diffrnet programming language. This made it difficult to undertand the logic but with enough tracing and evaluation I was able to translate the code into pseudo code. I then used this pseudo code to begin the proccess within unity. 
+
+I managed to translate the noise grid algorithm prettyu effortlessly into unity. However, getting each cell to recognise its neighbours got pretty tricky. As of now I utilize colliders to check for neihgbours and it works. Howvever this seems to be very slow and thus will need to come up with a better way.
+
+As for the cell manipulation process, I undertand the logic and belive that I'll be able to achieve this with ease once I figure out a way to inform each cell of its surrounding neighbours.
 
 ## Week 11 - Evaluation
 
