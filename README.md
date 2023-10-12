@@ -199,6 +199,8 @@ However, I've also noticed that I'm getting ahead of myself and that I need to e
 
 ## Week 10 - Developing your Project
 
+This week has been spent on developing a cellular automaton, and logging the roadblocks which I have encounterd in the way.
+
 **Roadblocks:**
 
 __WFC:__
