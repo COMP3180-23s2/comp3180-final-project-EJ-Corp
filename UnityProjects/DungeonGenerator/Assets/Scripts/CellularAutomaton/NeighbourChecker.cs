@@ -10,7 +10,7 @@ public class NeighbourChecker : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        parentCell = transform.parent.GetComponent<Cell>();
+        parentCell = transform.parent.parent.GetComponent<Cell>();
     }
 
     // Update is called once per frame
