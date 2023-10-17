@@ -8,17 +8,22 @@ public class CellularGrid : MonoBehaviour
     [SerializeField] private int height;
     [SerializeField] private int density;
 
-    [SerializeField] private GameObject floorTile;
-    [SerializeField] private GameObject wallTile;
+    [SerializeField] private Cell floorTile;
+    [SerializeField] private Cell wallTile;
+    [SerializeField] private List<Cell> cells;
 
     void Start()
     {
         GenerateGrid();
+        GetNeighbours();
     }
 
     void Update()
     {
-        
+        if(Input.GetButtonDown("Jump"))
+        {
+            GetNeighbours();
+        }
     }
 
     public void GenerateGrid()
@@ -30,15 +35,26 @@ public class CellularGrid : MonoBehaviour
                 int tileRoll = Random.Range(1, 101);
                 if(tileRoll > density)
                 {
-                    GameObject cellSpawned = Instantiate(floorTile);
+                    Cell cellSpawned = Instantiate(floorTile);
                     cellSpawned.transform.position = new Vector2(i, j);
+                    cells.Add(cellSpawned);
                 } else 
                 {
-                    GameObject cellSpawned = Instantiate(wallTile);
+                    Cell cellSpawned = Instantiate(wallTile);
                     cellSpawned.transform.position = new Vector2(i, j);
+                    cells.Add(cellSpawned);
                 }
                 
             }
+        }
+    }
+
+    public void GetNeighbours()
+    {
+        foreach(Cell currentCell in cells)
+        {
+            currentCell.doNeighbourCheck();
+            //currentCell.checkHolder.SetActive(false);
         }
     }
 }

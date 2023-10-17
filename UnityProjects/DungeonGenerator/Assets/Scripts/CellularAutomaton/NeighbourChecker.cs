@@ -26,6 +26,7 @@ public class NeighbourChecker : MonoBehaviour
         if(cellLayer.Contains(collided))
         {
             parentCell.neighbours[position] = collided;
+            Destroy(gameObject);
         }
     }
 }

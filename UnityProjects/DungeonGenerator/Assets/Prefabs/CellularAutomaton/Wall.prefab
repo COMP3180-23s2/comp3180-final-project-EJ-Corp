@@ -499,7 +499,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  checkers: {fileID: 0}
+  checkers:
+  - {fileID: 5406512867962630325}
+  - {fileID: 6341862455856327532}
+  - {fileID: 3536842284156454386}
+  - {fileID: 3312813966118106498}
+  - {fileID: 5826716536461740178}
+  - {fileID: 83718171289816370}
+  - {fileID: 2248169776794634822}
+  - {fileID: 403514497171708050}
 --- !u!1 &4174434695005148113
 GameObject:
   m_ObjectHideFlags: 0
