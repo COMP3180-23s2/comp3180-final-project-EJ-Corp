@@ -16,13 +16,14 @@ public class CellularGrid : MonoBehaviour
     {
         GenerateGrid();
         GetNeighbours();
+        CheckStates();
     }
 
     void Update()
     {
         if(Input.GetButtonDown("Jump"))
         {
-            GetNeighbours();
+            CheckStates();
         }
     }
 
@@ -53,7 +54,17 @@ public class CellularGrid : MonoBehaviour
     {
         foreach(Cell currentCell in cells)
         {
-            currentCell.doNeighbourCheck();
+            currentCell.DoNeighbourCheck();
+            //currentCell.CheckNextState();
+            //currentCell.checkHolder.SetActive(false);
+        }
+    }
+
+    public void CheckStates()
+    {
+        foreach(Cell currentCell in cells)
+        {
+            currentCell.CheckNextState();
             //currentCell.checkHolder.SetActive(false);
         }
     }

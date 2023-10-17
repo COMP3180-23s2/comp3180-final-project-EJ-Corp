@@ -25,7 +25,7 @@ public class NeighbourChecker : MonoBehaviour
         //Debug.Log(position + "collided");
         if(cellLayer.Contains(collided))
         {
-            parentCell.neighbours[position] = collided;
+            parentCell.neighbours[position] = collided.GetComponent<Cell>();
             Destroy(gameObject);
         }
     }

@@ -499,6 +499,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  checkHolder: {fileID: 0}
+  isWall: 1
   checkers:
   - {fileID: 5406512867962630325}
   - {fileID: 6341862455856327532}
@@ -508,6 +510,7 @@ MonoBehaviour:
   - {fileID: 83718171289816370}
   - {fileID: 2248169776794634822}
   - {fileID: 403514497171708050}
+  neighbourWallCount: 0
 --- !u!1 &4174434695005148113
 GameObject:
   m_ObjectHideFlags: 0
