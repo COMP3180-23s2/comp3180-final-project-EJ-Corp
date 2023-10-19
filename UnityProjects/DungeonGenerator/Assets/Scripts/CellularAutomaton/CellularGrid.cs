@@ -11,8 +11,8 @@ public class CellularGrid : MonoBehaviour
     [SerializeField] private Cell cellPrefab;
     [SerializeField] private List<Cell> cells;
 
-    [SerializeField] private bool redyForStates;
-    [SerializeField] private bool checkedStates;
+    private bool redyForStates;
+    private bool checkedStates;
     private float waitTime;
 
     private int iterations;

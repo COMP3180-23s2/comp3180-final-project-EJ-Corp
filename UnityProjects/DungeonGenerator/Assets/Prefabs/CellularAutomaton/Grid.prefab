@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 100
-  height: 100
-  density: 60
-  floorTile: {fileID: 3041163490837629939, guid: 825c623e40df73b4694de652fbd29fc7, type: 3}
-  wallTile: {fileID: 5953806772966046625, guid: 5b5f48da7afc4c448b3f5ebe3c9debd8, type: 3}
+  height: 50
+  density: 65
+  cellPrefab: {fileID: 6801236307724270679, guid: b0e517c3b3d739b42939c804f69aafb1, type: 3}
   cells: []
+  redyForStates: 0
+  checkedStates: 0
