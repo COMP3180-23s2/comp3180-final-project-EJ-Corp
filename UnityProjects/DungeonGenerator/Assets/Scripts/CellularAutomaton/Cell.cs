@@ -7,7 +7,6 @@ public class Cell : MonoBehaviour
 {
     [SerializeField] public Cell[] neighbours = new Cell[8];
     [SerializeField] public GameObject checkHolder;
-    [SerializeField] private bool isWall;
     [SerializeField] private Collider2D[] checkers = new Collider2D[8];
     [SerializeField] private int neighbourWallCount = 0;
 

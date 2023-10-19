@@ -8,14 +8,14 @@ public class CellularGrid : MonoBehaviour
     [SerializeField] private int height;
     [SerializeField] private int density;
 
-    [SerializeField] private Cell floorTile;
-    [SerializeField] private Cell wallTile;
     [SerializeField] private Cell cellPrefab;
     [SerializeField] private List<Cell> cells;
 
     [SerializeField] private bool redyForStates;
     [SerializeField] private bool checkedStates;
     private float waitTime;
+
+    private int iterations;
 
     void Start()
     {
@@ -91,7 +91,7 @@ public class CellularGrid : MonoBehaviour
             redyForStates = false;
             checkedStates = true;
         }
-        Debug.Log("States Checked");
+        
     }
 
     public void GoNextState()
@@ -102,6 +102,7 @@ public class CellularGrid : MonoBehaviour
             currentCell.ChangeState();
             currentCell.CheckNextState();
         }
-        Debug.Log("States Changed");
+        iterations++;
+        Debug.Log("Iteration Number: " + iterations);
     }
 }
