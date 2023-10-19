@@ -10,18 +10,37 @@ public class CellularGrid : MonoBehaviour
 
     [SerializeField] private Cell floorTile;
     [SerializeField] private Cell wallTile;
+    [SerializeField] private Cell cellPrefab;
     [SerializeField] private List<Cell> cells;
+
+    [SerializeField] private bool redyForStates;
+    [SerializeField] private bool checkedStates;
+    private float waitTime;
 
     void Start()
     {
         GenerateGrid();
         GetNeighbours();
-        CheckStates();
+        
     }
 
     void Update()
     {
         if(Input.GetButtonDown("Jump"))
+        {
+            GoNextState();
+        }
+
+        if(waitTime > 0)
+        {
+            waitTime -= Time.deltaTime;
+        }
+
+        if(waitTime <= 0)
+        {
+            redyForStates = true;
+        }
+        if(redyForStates && !checkedStates)
         {
             CheckStates();
         }
@@ -36,13 +55,15 @@ public class CellularGrid : MonoBehaviour
                 int tileRoll = Random.Range(1, 101);
                 if(tileRoll > density)
                 {
-                    Cell cellSpawned = Instantiate(floorTile);
+                    Cell cellSpawned = Instantiate(cellPrefab);
                     cellSpawned.transform.position = new Vector2(i, j);
+                    cellSpawned.cellState = Cell.CellState.floor;
                     cells.Add(cellSpawned);
                 } else 
                 {
-                    Cell cellSpawned = Instantiate(wallTile);
+                    Cell cellSpawned = Instantiate(cellPrefab);
                     cellSpawned.transform.position = new Vector2(i, j);
+                    cellSpawned.cellState = Cell.CellState.wall;
                     cells.Add(cellSpawned);
                 }
                 
@@ -58,6 +79,7 @@ public class CellularGrid : MonoBehaviour
             //currentCell.CheckNextState();
             //currentCell.checkHolder.SetActive(false);
         }
+        waitTime = 1;
     }
 
     public void CheckStates()
@@ -66,6 +88,20 @@ public class CellularGrid : MonoBehaviour
         {
             currentCell.CheckNextState();
             //currentCell.checkHolder.SetActive(false);
+            redyForStates = false;
+            checkedStates = true;
         }
+        Debug.Log("States Checked");
+    }
+
+    public void GoNextState()
+    {
+        foreach(Cell currentCell in cells)
+        {
+            currentCell.cellState = currentCell.nextState;
+            currentCell.ChangeState();
+            currentCell.CheckNextState();
+        }
+        Debug.Log("States Changed");
     }
 }

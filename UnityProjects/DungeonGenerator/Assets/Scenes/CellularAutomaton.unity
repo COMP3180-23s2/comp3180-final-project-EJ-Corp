@@ -216,12 +216,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5315761041853684616, guid: bbb46f1ab501fda46bc9c71517516aa2, type: 3}
       propertyPath: width
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5315761041853684616, guid: bbb46f1ab501fda46bc9c71517516aa2, type: 3}
       propertyPath: height
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 5315761041853684616, guid: bbb46f1ab501fda46bc9c71517516aa2, type: 3}
+      propertyPath: density
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315761041853684616, guid: bbb46f1ab501fda46bc9c71517516aa2, type: 3}
+      propertyPath: cellPrefab
+      value: 
+      objectReference: {fileID: 6801236307724270679, guid: b0e517c3b3d739b42939c804f69aafb1, type: 3}
     - target: {fileID: 5315761041853684617, guid: bbb46f1ab501fda46bc9c71517516aa2, type: 3}
       propertyPath: m_RootOrder
       value: 1
