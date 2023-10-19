@@ -14,10 +14,13 @@ public class RoomSpawner : MonoBehaviour
         private int roomRoll;
         [SerializeField] private bool jobDone = false;
 
+        [SerializeField] private GameObject rooms;
+
     // Start is called before the first frame update
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+        rooms = GameObject.FindGameObjectWithTag("Holder");
         Invoke("Spawn", 0.1f);
     }
 
@@ -36,6 +39,7 @@ public class RoomSpawner : MonoBehaviour
                     roomRoll = Random.Range(0, templates.bottomRooms.Length);
                     spawnedRoom = Instantiate(templates.bottomRooms[roomRoll]);
                     spawnedRoom.transform.position = transform.position;
+                    spawnedRoom.transform.parent = transform.parent.parent;
                     break;
 
                 case 2:
@@ -44,6 +48,7 @@ public class RoomSpawner : MonoBehaviour
                     roomRoll = Random.Range(0, templates.topRooms.Length);
                     spawnedRoom = Instantiate(templates.topRooms[roomRoll]);
                     spawnedRoom.transform.position = transform.position;
+                    spawnedRoom.transform.parent = transform.parent.parent;
                     break;
 
                 case 3:
@@ -52,6 +57,7 @@ public class RoomSpawner : MonoBehaviour
                     roomRoll = Random.Range(0, templates.leftRooms.Length);
                     spawnedRoom = Instantiate(templates.leftRooms[roomRoll]);
                     spawnedRoom.transform.position = transform.position;
+                    spawnedRoom.transform.parent = transform.parent.parent;
                     break;
 
                 case 4:
@@ -60,6 +66,7 @@ public class RoomSpawner : MonoBehaviour
                     roomRoll = Random.Range(0, templates.rightRooms.Length);
                     spawnedRoom = Instantiate(templates.rightRooms[roomRoll]);
                     spawnedRoom.transform.position = transform.position;
+                    spawnedRoom.transform.parent = transform.parent.parent;
                     break;
             }
 

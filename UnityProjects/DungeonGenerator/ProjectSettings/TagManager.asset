@@ -9,6 +9,7 @@ TagManager:
   - Templates
   - Cell
   - NeighbourChecker
+  - Holder
   layers:
   - Default
   - TransparentFX
