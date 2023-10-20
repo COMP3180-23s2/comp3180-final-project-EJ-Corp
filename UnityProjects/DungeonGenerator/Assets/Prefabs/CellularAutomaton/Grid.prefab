@@ -46,8 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 100
   height: 50
-  density: 65
+  wallDensity: 60
   cellPrefab: {fileID: 6801236307724270679, guid: b0e517c3b3d739b42939c804f69aafb1, type: 3}
   cells: []
-  redyForStates: 0
-  checkedStates: 0

@@ -223,6 +223,10 @@ Try and find developers to test my tool
 
 Need humna evaluation for everyone to be happy
 
+Link to eval form:
+
+https://forms.gle/3mnZT8f9EUahYTKz7
+
 
 
 ## Week 12 - Evaluation

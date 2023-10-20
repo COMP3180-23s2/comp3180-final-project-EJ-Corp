@@ -6,7 +6,7 @@ public class CellularGrid : MonoBehaviour
 {
     [SerializeField] private int width;
     [SerializeField] private int height;
-    [SerializeField] private int density;
+    [SerializeField] private int wallDensity;
 
     [SerializeField] private Cell cellPrefab;
     [SerializeField] private List<Cell> cells;
@@ -53,7 +53,7 @@ public class CellularGrid : MonoBehaviour
             for(int j = 0; j < height; j++)
             {
                 int tileRoll = Random.Range(1, 101);
-                if(tileRoll > density)
+                if(tileRoll > wallDensity)
                 {
                     Cell cellSpawned = Instantiate(cellPrefab);
                     cellSpawned.transform.position = new Vector2(i, j);
