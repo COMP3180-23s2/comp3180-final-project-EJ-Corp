@@ -10,6 +10,7 @@ TagManager:
   - Cell
   - NeighbourChecker
   - Holder
+  - Grid
   layers:
   - Default
   - TransparentFX

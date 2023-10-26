@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class RoomHandler : MonoBehaviour
 {
+    [Header("Manually Fill In")]
     [SerializeField] private GameObject horiDoor;
     [SerializeField] private GameObject vertDoor;
-    [SerializeField] private List<int> doors;
+    [SerializeField] private List<int> doors, walls;
         //Door 1 = Top
         //Door 2 = Right
         //Door 3 = Bottom
@@ -15,9 +16,9 @@ public class RoomHandler : MonoBehaviour
     [SerializeField] private CellHybrid roomCell;
     [SerializeField] private GridGen grid;
     
-    void Start()
+    void Awake()
     {
-        
+        grid = GameObject.FindGameObjectWithTag("Grid").GetComponent<GridGen>();
     }
 
     // Update is called once per frame
@@ -47,10 +48,14 @@ public class RoomHandler : MonoBehaviour
 
             if(cellToCheck.taken)
             {
+                Debug.Log("Spaning Door");
                 SpawnDoor(1); //Spawn a door on pos 1 == TOP
+                
             } else 
             {
+                Debug.Log("Spaning Room");
                 SpawnRoom(3, cellToCheck); //Spawn room from bottom pool (pool 3)
+                
             }
             
         } else if(doors[pathChosen] == 2) //Has a door at the right ---> Pull room from LEFT List
@@ -92,9 +97,44 @@ public class RoomHandler : MonoBehaviour
         int roomRoll = Random.Range(0, 4);
         if(doorNeeded == 3)
         {
-            GameObject newRoom = Instantiate(TemplateRooms.Templates.bottomRooms[roomRoll]);
+            RoomHandler newRoom = Instantiate(TemplateRooms.Templates.bottomRooms[roomRoll]);
             newRoom.transform.position = cellPosition.transform.position - new Vector3(0, 1, 0);
+            newRoom.SetRoomCell(cellPosition);
             cellPosition.Occupy();
+            newRoom.OccupyWallNeighbors();
+        }
+
+        
+    }
+
+    public void OccupyWallNeighbors()
+    {
+        foreach(int wall in walls)
+        {
+            if(wall == 1) //Occupy one above
+            {
+                Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x, roomCell.gridPosition.y + 1);
+                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                cellToOccupy.Occupy();
+
+            } else if(wall == 2) //Occupy one right
+            {
+                Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x + 1, roomCell.gridPosition.y);
+                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                cellToOccupy.Occupy();
+
+            } else if(wall == 3) // occupy one below
+            {
+                Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x, roomCell.gridPosition.y - 1);
+                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                cellToOccupy.Occupy();
+
+            }else if(wall == 4) //Occupy one Left
+            {
+                Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x - 1, roomCell.gridPosition.y);
+                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                cellToOccupy.Occupy();
+            }
         }
     }
 }

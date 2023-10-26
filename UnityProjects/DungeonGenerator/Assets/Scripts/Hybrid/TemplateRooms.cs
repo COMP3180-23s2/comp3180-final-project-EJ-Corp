@@ -13,10 +13,10 @@ public class TemplateRooms : MonoBehaviour
         }
     }
 
-    public GameObject[] topRooms;
-    public GameObject[] leftRooms;
-    public GameObject[] bottomRooms;
-    public GameObject[] rightRooms;
+    public RoomHandler[] topRooms;
+    public RoomHandler[] leftRooms;
+    public RoomHandler[] bottomRooms;
+    public RoomHandler[] rightRooms;
 
     void Awake()
     {
