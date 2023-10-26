@@ -111,3 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridPosition: {x: 0, y: 0}
+  taken: 0
+  name: 
+  takenMaterial: {fileID: 2100000, guid: f19d52416bf9ba54bac913b35c6074ef, type: 2}

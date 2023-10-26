@@ -46,7 +46,6 @@ public class GridGen : MonoBehaviour
                 spawnPoint.SetPosition(i, j);
                 cellCollection.Add(spawnPoint);
                 spawnPoint.name = i + "," + j;
-                spawnPoint.SetName(spawnPoint.name);
                 if(i == middlePos.x && j == middlePos.y)
                 {
                     middleCell = spawnPoint;

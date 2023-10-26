@@ -27,6 +27,10 @@ public class RoomHandler : MonoBehaviour
         {
             ChoosePath();
         }
+        if(Input.GetButtonDown("1"))
+        {
+
+        }
     }
 
     public void ChoosePath()
@@ -44,6 +48,9 @@ public class RoomHandler : MonoBehaviour
             if(cellToCheck.taken)
             {
                 SpawnDoor(1); //Spawn a door on pos 1 == TOP
+            } else 
+            {
+                SpawnRoom(3, cellToCheck); //Spawn room from bottom pool (pool 3)
             }
             
         } else if(doors[pathChosen] == 2) //Has a door at the right ---> Pull room from LEFT List
@@ -77,6 +84,17 @@ public class RoomHandler : MonoBehaviour
             GameObject door = Instantiate(horiDoor);
             door.transform.position = transform.position + new Vector3(0, 2.5f, 9.5f);
             door.transform.parent = transform;
+        }
+    }
+
+    public void SpawnRoom(int doorNeeded, CellHybrid cellPosition)
+    {
+        int roomRoll = Random.Range(0, 4);
+        if(doorNeeded == 3)
+        {
+            GameObject newRoom = Instantiate(TemplateRooms.Templates.bottomRooms[roomRoll]);
+            newRoom.transform.position = cellPosition.transform.position - new Vector3(0, 1, 0);
+            cellPosition.Occupy();
         }
     }
 }

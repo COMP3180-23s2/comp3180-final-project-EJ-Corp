@@ -7,7 +7,7 @@ public class CellHybrid : MonoBehaviour
 {
     [SerializeField] public Vector2 gridPosition;
     public bool taken = false;
-    [SerializeField] private string name;
+    [SerializeField] private Material takenMaterial;
     void Start()
     {
         
@@ -37,10 +37,6 @@ public class CellHybrid : MonoBehaviour
     public void Occupy()
     {
         taken = true;
-    }
-
-    public void SetName(String newName)
-    {
-        name = newName;
+        transform.GetComponent<MeshRenderer>().material = takenMaterial;
     }
 }

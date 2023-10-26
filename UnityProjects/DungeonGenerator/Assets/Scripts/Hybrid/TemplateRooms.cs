@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class TemplateRooms : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    static private TemplateRooms templates;
+    static public TemplateRooms Templates
     {
-        
+        get
+        {
+            return templates;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject[] topRooms;
+    public GameObject[] leftRooms;
+    public GameObject[] bottomRooms;
+    public GameObject[] rightRooms;
+
+    void Awake()
     {
-        
+        templates = this;
     }
 }
