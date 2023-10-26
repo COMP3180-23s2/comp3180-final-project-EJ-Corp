@@ -82,6 +82,11 @@ public class RoomHandler : MonoBehaviour
         grid = generatedGrid;
     }
 
+    public void DoorDone(int doorID)
+    {
+        doors.Remove(doorID);
+    }
+
     public void SpawnDoor(int pos)
     {
         if(pos == 1)
@@ -102,6 +107,9 @@ public class RoomHandler : MonoBehaviour
             newRoom.SetRoomCell(cellPosition);
             cellPosition.Occupy();
             newRoom.OccupyWallNeighbors();
+
+            DoorDone(1);
+            newRoom.DoorDone(3);
         }
 
         
