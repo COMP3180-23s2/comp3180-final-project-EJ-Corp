@@ -6,15 +6,23 @@ using UnityEngine.UIElements;
 public class GridGen : MonoBehaviour
 {
     [SerializeField] private CellHybrid spawnPoints;
+    [SerializeField] private RoomHandler spawnRoomPrefab;
     [SerializeField] private int width;
     [SerializeField] private int height;
     [SerializeField] private int spreadOffset;
     [SerializeField] private CellHybrid middleCell;
+    
 
     
-    void Start()
+    void Awake()
     {
         GenerateGrid();
+    }
+
+    void Start()
+    {
+        SpawnFirstRoom();
+        
     }
 
     // Update is called once per frame
@@ -30,7 +38,7 @@ public class GridGen : MonoBehaviour
         {
             for(int j = 0; j < height; j++)
             {
-                Vector3 currentPos = new Vector3(i * spreadOffset, 0, j * spreadOffset);
+                Vector3 currentPos = new Vector3(i * spreadOffset, 1, j * spreadOffset);
                 CellHybrid spawnPoint = Instantiate(spawnPoints);
                 spawnPoint.transform.position = currentPos;
                 spawnPoint.SetPosition(i, j);
@@ -40,5 +48,12 @@ public class GridGen : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SpawnFirstRoom()
+    {
+        RoomHandler spawnRoom = Instantiate(spawnRoomPrefab);
+        spawnRoom.transform.position = middleCell.transform.position - new Vector3(0, 1, 0);
+        spawnRoom.SetRoomCell(middleCell);
     }
 }

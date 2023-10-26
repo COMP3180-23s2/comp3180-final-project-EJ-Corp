@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: {fileID: 8557803266902160652, guid: 5b34e9320d006ad4c91df3a06ee4dba4, type: 3}
+  spawnRoomPrefab: {fileID: 7069608735854431535, guid: 56c8fff95b9f00444ac689c608b9ba0b, type: 3}
   width: 10
   height: 10
   spreadOffset: 25
