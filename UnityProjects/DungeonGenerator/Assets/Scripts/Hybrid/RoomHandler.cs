@@ -80,10 +80,34 @@ public class RoomHandler : MonoBehaviour
 
         } else if(doors[pathChosen] == 3) //Has a door at the bottom ---> Pull room from TOP List
         {
-            Debug.Log("Implement Spawning rooms to the bottom");
+            //Check same x but Y -1
+            Vector2 positionToCheck = new Vector2(roomCell.gridPosition.x, roomCell.gridPosition.y - 1);
+            CellHybrid cellToCheck = grid.FindCell(positionToCheck);
+
+            if(cellToCheck.taken)
+            {
+                SpawnDoor(3); //Spawn a door on pos 3 == BOTTOM
+                
+            } else 
+            {
+                SpawnRoom(1, cellToCheck); //Spawn room from Top pool (pool 1)
+                
+            }
         } else if(doors[pathChosen] == 4) //Has a door at the Left ---> Pull room from RIGHT List
         {
-            Debug.Log("Implement Spawning rooms to the left");
+            //Check x - 1 but same Y
+            Vector2 positionToCheck = new Vector2(roomCell.gridPosition.x - 1, roomCell.gridPosition.y);
+            CellHybrid cellToCheck = grid.FindCell(positionToCheck);
+
+            if(cellToCheck.taken)
+            {
+                SpawnDoor(4); //Spawn a door on pos 2 == LEFT
+                
+            } else 
+            {
+                SpawnRoom(2, cellToCheck); //Spawn room from Right pool (pool 2)
+                
+            }
         }
         
     }
