@@ -36,9 +36,15 @@ public class RoomHandler : MonoBehaviour
 
     public void ChoosePath()
     {
+        if(doors.Count <= 0)
+        {
+            Debug.Log("Empty Doors");
+            return;
+        }
         int pathChosen = Random.Range(0, doors.Count);
 
         pathChosen = 0;
+
 
         if(doors[pathChosen] == 1) //Has a door at the top ---> Pull room from BOTTOM List
         {
@@ -48,25 +54,36 @@ public class RoomHandler : MonoBehaviour
 
             if(cellToCheck.taken)
             {
-                Debug.Log("Spaning Door");
                 SpawnDoor(1); //Spawn a door on pos 1 == TOP
                 
             } else 
             {
-                Debug.Log("Spaning Room");
                 SpawnRoom(3, cellToCheck); //Spawn room from bottom pool (pool 3)
                 
             }
             
         } else if(doors[pathChosen] == 2) //Has a door at the right ---> Pull room from LEFT List
         {
+            //Check x + 1 but same Y
+            Vector2 positionToCheck = new Vector2(roomCell.gridPosition.x + 1, roomCell.gridPosition.y);
+            CellHybrid cellToCheck = grid.FindCell(positionToCheck);
+
+            if(cellToCheck.taken)
+            {
+                SpawnDoor(2); //Spawn a door on pos 2 == RIGHT
+                
+            } else 
+            {
+                SpawnRoom(4, cellToCheck); //Spawn room from left pool (pool 4)
+                
+            }
 
         } else if(doors[pathChosen] == 3) //Has a door at the bottom ---> Pull room from TOP List
         {
-
+            Debug.Log("Implement Spawning rooms to the bottom");
         } else if(doors[pathChosen] == 4) //Has a door at the Left ---> Pull room from RIGHT List
         {
-
+            Debug.Log("Implement Spawning rooms to the left");
         }
         
     }
@@ -94,13 +111,55 @@ public class RoomHandler : MonoBehaviour
             GameObject door = Instantiate(horiDoor);
             door.transform.position = transform.position + new Vector3(0, 2.5f, 9.5f);
             door.transform.parent = transform;
+
+        } else if(pos == 2)
+        {
+            GameObject door = Instantiate(vertDoor);
+            door.transform.position = transform.position + new Vector3(9.5f, 2.5f, 0);
+            door.transform.parent = transform;
+
+        } else if(pos == 3)
+        {
+            GameObject door = Instantiate(horiDoor);
+            door.transform.position = transform.position + new Vector3(0, 2.5f, -9.5f);
+            door.transform.parent = transform;
+
+        } else if(pos == 4)
+        {
+            GameObject door = Instantiate(vertDoor);
+            door.transform.position = transform.position + new Vector3(-9.5f, 2.5f, 0);
+            door.transform.parent = transform;
         }
     }
 
     public void SpawnRoom(int doorNeeded, CellHybrid cellPosition)
     {
         int roomRoll = Random.Range(0, 4);
-        if(doorNeeded == 3)
+        if(doorNeeded == 1) //Top Pool (Room has door on top side)
+        {
+            RoomHandler newRoom = Instantiate(TemplateRooms.Templates.topRooms[roomRoll]);
+            newRoom.transform.position = cellPosition.transform.position - new Vector3(0, 1, 0);
+            newRoom.SetRoomCell(cellPosition);
+            cellPosition.Occupy();
+            newRoom.OccupyWallNeighbors();
+
+            DoorDone(3);
+            newRoom.DoorDone(1);
+            newRoom.ChoosePath();
+
+        } else if(doorNeeded == 2) //Right Pool (Room has door on right side)
+        {
+            RoomHandler newRoom = Instantiate(TemplateRooms.Templates.rightRooms[roomRoll]);
+            newRoom.transform.position = cellPosition.transform.position - new Vector3(0, 1, 0);
+            newRoom.SetRoomCell(cellPosition);
+            cellPosition.Occupy();
+            newRoom.OccupyWallNeighbors();
+
+            DoorDone(4);
+            newRoom.DoorDone(2);
+            newRoom.ChoosePath();
+
+        } else if(doorNeeded == 3) //Bottom Pool (Room has door on bottom side)
         {
             RoomHandler newRoom = Instantiate(TemplateRooms.Templates.bottomRooms[roomRoll]);
             newRoom.transform.position = cellPosition.transform.position - new Vector3(0, 1, 0);
@@ -110,6 +169,19 @@ public class RoomHandler : MonoBehaviour
 
             DoorDone(1);
             newRoom.DoorDone(3);
+            newRoom.ChoosePath();
+
+        } else if(doorNeeded == 4) //Left Pool (Room has a door on left side)
+        {
+            RoomHandler newRoom = Instantiate(TemplateRooms.Templates.leftRooms[roomRoll]);
+            newRoom.transform.position = cellPosition.transform.position - new Vector3(0, 1, 0);
+            newRoom.SetRoomCell(cellPosition);
+            cellPosition.Occupy();
+            newRoom.OccupyWallNeighbors();
+
+            DoorDone(2);
+            newRoom.DoorDone(4);
+            newRoom.ChoosePath();
         }
 
         
