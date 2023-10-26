@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CellHybrid : MonoBehaviour
 {
-    [SerializeField] private Vector2 gridPosition;
+    [SerializeField] public Vector2 gridPosition;
+    public bool taken = false;
+    [SerializeField] private string name;
     void Start()
     {
         
@@ -29,5 +32,15 @@ public class CellHybrid : MonoBehaviour
             return this;
         }
         return null;
+    }
+
+    public void Occupy()
+    {
+        taken = true;
+    }
+
+    public void SetName(String newName)
+    {
+        name = newName;
     }
 }

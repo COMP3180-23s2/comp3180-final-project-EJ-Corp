@@ -600,7 +600,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67c92932fa23374397e624ac11ba7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horiDoor: {fileID: 254969121470718925, guid: 6d2aaac4a7dc0f1448752c2dec4c36de, type: 3}
+  vertDoor: {fileID: 2399643584803747346, guid: e588c67762516cd428c3047d681c0631, type: 3}
   doors: 01000000020000000300000004000000
+  roomCell: {fileID: 0}
+  grid: {fileID: 0}
 --- !u!1 &4976795852400161346
 GameObject:
   m_ObjectHideFlags: 0

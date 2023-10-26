@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class GridGen : MonoBehaviour
     [SerializeField] private int height;
     [SerializeField] private int spreadOffset;
     [SerializeField] private CellHybrid middleCell;
+    [SerializeField] private List<CellHybrid> cellCollection;
     
 
     
@@ -42,6 +44,9 @@ public class GridGen : MonoBehaviour
                 CellHybrid spawnPoint = Instantiate(spawnPoints);
                 spawnPoint.transform.position = currentPos;
                 spawnPoint.SetPosition(i, j);
+                cellCollection.Add(spawnPoint);
+                spawnPoint.name = i + "," + j;
+                spawnPoint.SetName(spawnPoint.name);
                 if(i == middlePos.x && j == middlePos.y)
                 {
                     middleCell = spawnPoint;
@@ -55,5 +60,20 @@ public class GridGen : MonoBehaviour
         RoomHandler spawnRoom = Instantiate(spawnRoomPrefab);
         spawnRoom.transform.position = middleCell.transform.position - new Vector3(0, 1, 0);
         spawnRoom.SetRoomCell(middleCell);
+        spawnRoom.SetGrid(this);
+        
+    }
+
+    public CellHybrid FindCell(Vector2 position)
+    {
+        foreach(CellHybrid cell in cellCollection)
+        {
+            if(cell.gridPosition == position)
+            {
+                return cell;
+            }
+        }
+        Debug.Log("NotFound");
+        return null;
     }
 }
