@@ -63,6 +63,7 @@ public class RoomHandler : MonoBehaviour
                 return;
             }
 
+            Debug.Log("Check Position: " + positionToCheck);
             CellHybrid cellToCheck = grid.FindCell(positionToCheck);
 
             if(cellToCheck.taken)
