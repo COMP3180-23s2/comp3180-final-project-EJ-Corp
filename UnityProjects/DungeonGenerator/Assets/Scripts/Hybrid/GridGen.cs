@@ -75,4 +75,14 @@ public class GridGen : MonoBehaviour
         Debug.Log("NotFound");
         return null;
     }
+
+    public int GetGridWidth()
+    {
+        return width;
+    }
+
+    public int GetGridHeight()
+    {
+        return height;
+    }
 }
