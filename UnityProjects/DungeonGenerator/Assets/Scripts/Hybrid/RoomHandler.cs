@@ -39,11 +39,11 @@ public class RoomHandler : MonoBehaviour
     {
         if(doors.Count <= 0)
         {
-            // if(isSpawn && doors.Count <= 0)
-            // {
-            //     return;
-            // }
-            // grid.Spaw
+            if(isSpawn && doors.Count <= 0)
+            {
+                return;
+            }
+            grid.spawnRoom.ChoosePath();
             return;
         }
         int pathChosen = Random.Range(0, doors.Count);

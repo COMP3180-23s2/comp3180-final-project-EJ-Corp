@@ -13,7 +13,7 @@ public class GridGen : MonoBehaviour
     [SerializeField] private int spreadOffset;
     [SerializeField] private CellHybrid middleCell;
     [SerializeField] private List<CellHybrid> cellCollection;
-    [SerializeField] private RoomHandler spawnRoom;
+    [SerializeField] public RoomHandler spawnRoom;
     
 
     
