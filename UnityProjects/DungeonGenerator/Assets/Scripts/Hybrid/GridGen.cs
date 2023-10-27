@@ -13,6 +13,7 @@ public class GridGen : MonoBehaviour
     [SerializeField] private int spreadOffset;
     [SerializeField] private CellHybrid middleCell;
     [SerializeField] private List<CellHybrid> cellCollection;
+    [SerializeField] private RoomHandler spawnRoom;
     
 
     
@@ -56,7 +57,7 @@ public class GridGen : MonoBehaviour
 
     public void SpawnFirstRoom()
     {
-        RoomHandler spawnRoom = Instantiate(spawnRoomPrefab);
+        spawnRoom = Instantiate(spawnRoomPrefab);
         spawnRoom.transform.position = middleCell.transform.position - new Vector3(0, 1, 0);
         spawnRoom.SetRoomCell(middleCell);
         spawnRoom.SetGrid(this);
@@ -72,7 +73,7 @@ public class GridGen : MonoBehaviour
                 return cell;
             }
         }
-        Debug.Log("NotFound");
+        Debug.Log("NotFound: " + position);
         return null;
     }
 

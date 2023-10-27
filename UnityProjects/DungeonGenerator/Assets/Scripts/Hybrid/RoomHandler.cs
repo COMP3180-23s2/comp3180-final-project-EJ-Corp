@@ -15,6 +15,7 @@ public class RoomHandler : MonoBehaviour
 
     [SerializeField] private CellHybrid roomCell;
     [SerializeField] private GridGen grid;
+    [SerializeField] private bool isSpawn = false;
     
     void Awake()
     {
@@ -38,7 +39,11 @@ public class RoomHandler : MonoBehaviour
     {
         if(doors.Count <= 0)
         {
-            Debug.Log("Empty Doors");
+            // if(isSpawn && doors.Count <= 0)
+            // {
+            //     return;
+            // }
+            // grid.Spaw
             return;
         }
         int pathChosen = Random.Range(0, doors.Count);
@@ -64,9 +69,15 @@ public class RoomHandler : MonoBehaviour
             {
                 SpawnDoor(1); //Spawn a door on pos 1 == TOP
                 
-            } else 
+            } else if(cellToCheck.taken == false)
             {
-                SpawnRoom(3, cellToCheck); //Spawn room from bottom pool (pool 3)
+                if(cellToCheck.LookForNeighbourRooms(3, grid))
+                {
+                    SpawnDoor(1);
+                    cellToCheck.Occupy();
+                } else {
+                    SpawnRoom(3, cellToCheck); //Spawn room from bottom pool (pool 3)
+                }
                 
             }
             
@@ -110,9 +121,17 @@ public class RoomHandler : MonoBehaviour
             {
                 SpawnDoor(3); //Spawn a door on pos 3 == BOTTOM
                 
-            } else 
+            } else if(cellToCheck.taken == false)
             {
-                SpawnRoom(1, cellToCheck); //Spawn room from Top pool (pool 1)
+                if(cellToCheck.LookForNeighbourRooms(1, grid))
+                {
+                    SpawnDoor(3);
+                    cellToCheck.Occupy();
+                } else 
+                {
+                    SpawnRoom(1, cellToCheck); //Spawn room from Top pool (pool 1)
+                }   
+                
                 
             }
         } else if(doors[pathChosen] == 4) //Has a door at the Left ---> Pull room from RIGHT List
@@ -145,6 +164,7 @@ public class RoomHandler : MonoBehaviour
     {
         roomCell = cell;
         roomCell.Occupy();
+        roomCell.LogRoom();
     }
 
     public void SetGrid(GridGen generatedGrid)
@@ -199,6 +219,7 @@ public class RoomHandler : MonoBehaviour
             DoorDone(3);
             newRoom.DoorDone(1);
             newRoom.ChoosePath();
+            newRoom.roomCell.LogRoom();
 
         } else if(doorNeeded == 2) //Right Pool (Room has door on right side)
         {

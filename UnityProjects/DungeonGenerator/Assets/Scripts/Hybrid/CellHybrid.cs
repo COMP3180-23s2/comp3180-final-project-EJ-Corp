@@ -7,6 +7,7 @@ public class CellHybrid : MonoBehaviour
 {
     [SerializeField] public Vector2 gridPosition;
     public bool taken = false;
+    public bool hasRoom = false;
     [SerializeField] private Material takenMaterial;
     void Start()
     {
@@ -38,5 +39,141 @@ public class CellHybrid : MonoBehaviour
     {
         taken = true;
         transform.GetComponent<MeshRenderer>().material = takenMaterial;
+    }
+    
+    public void LogRoom()
+    {
+        hasRoom = true;
+    }
+
+    public bool LookForNeighbourRooms(int originPos, GridGen grid)
+    {
+        Vector2 placeToCheck;
+        if(originPos == 1) //Room Originated from Top
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                if(i == 0) //Check Right side
+                {
+                    placeToCheck = gridPosition + new Vector2(1, 0);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 1) //Check Bottom SIde
+                {
+                    placeToCheck = gridPosition + new Vector2(0, -1);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 2) //Check Left side
+                {
+                    placeToCheck = gridPosition + new Vector2(-1, 0);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        } else if(originPos == 2) // Room Generated from right side
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                if(i == 0) //Check Bottom side
+                {
+                    placeToCheck = gridPosition + new Vector2(0, -1);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 1) //Check Left SIde
+                {
+                    placeToCheck = gridPosition + new Vector2(-1, 0);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 2) //Check Top side
+                {
+                    placeToCheck = gridPosition + new Vector2(0, 1);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        } else if(originPos == 3) //Room Generated from Bottom side
+        {
+             for(int i = 0; i < 3; i++)
+            {
+                if(i == 0) //Check Left side
+                {
+                    placeToCheck = gridPosition + new Vector2(-1, 0);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 1) //Check Top SIde
+                {
+                    placeToCheck = gridPosition + new Vector2(0, 1);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 2) //Check Right side
+                {
+                    placeToCheck = gridPosition + new Vector2(1, 0);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        } else if(originPos == 4) //Room generated from Left side
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                if(i == 0) //Check Top side
+                {
+                    placeToCheck = gridPosition + new Vector2(0, 1);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 1) //Check Right SIde
+                {
+                    placeToCheck = gridPosition + new Vector2(1, 0);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                } else if(i == 2) //Check Bottom side
+                {
+                    placeToCheck = gridPosition + new Vector2(0, -1);
+                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                    if(checkedCell.hasRoom) //Found room in neighbor
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return false;
     }
 }
