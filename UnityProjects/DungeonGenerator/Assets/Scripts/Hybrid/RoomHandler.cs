@@ -50,6 +50,9 @@ public class RoomHandler : MonoBehaviour
         {
             //Check Same x but Y +1
             Vector2 positionToCheck = new Vector2(roomCell.gridPosition.x, roomCell.gridPosition.y + 1);
+
+            //if position to check is outside boundaries (x > || < width) || (y > || < height) ---> spawn door and return
+
             CellHybrid cellToCheck = grid.FindCell(positionToCheck);
 
             if(cellToCheck.taken)
@@ -218,6 +221,9 @@ public class RoomHandler : MonoBehaviour
             if(wall == 1) //Occupy one above
             {
                 Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x, roomCell.gridPosition.y + 1);
+
+                //if position to check is outside boundaries (x > || < width) || (y > || < height) ---> do nothing for this wall
+
                 CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
                 cellToOccupy.Occupy();
 
