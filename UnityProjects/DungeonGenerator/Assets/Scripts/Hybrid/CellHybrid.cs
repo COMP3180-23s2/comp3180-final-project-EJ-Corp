@@ -48,6 +48,7 @@ public class CellHybrid : MonoBehaviour
 
     public bool LookForNeighbourRooms(int originPos, GridGen grid)
     {
+        Debug.Log("Looking for Neighbours - Origin: " + originPos);
         Vector2 placeToCheck;
         if(originPos == 1) //Room Originated from Top
         {

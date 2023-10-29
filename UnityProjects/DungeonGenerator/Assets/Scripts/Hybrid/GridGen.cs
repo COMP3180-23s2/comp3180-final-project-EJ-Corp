@@ -27,13 +27,6 @@ public class GridGen : MonoBehaviour
         SpawnFirstRoom();
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void GenerateGrid()
     {
         Vector2 middlePos = new Vector2(width/2, height/2);
@@ -66,6 +59,7 @@ public class GridGen : MonoBehaviour
 
     public CellHybrid FindCell(Vector2 position)
     {
+        //Debug.Log("Finding Cell: " + position);
         foreach(CellHybrid cell in cellCollection)
         {
             if(cell.gridPosition == position)

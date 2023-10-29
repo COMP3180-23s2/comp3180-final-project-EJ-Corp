@@ -48,7 +48,7 @@ public class RoomHandler : MonoBehaviour
         }
         int pathChosen = Random.Range(0, doors.Count);
 
-        pathChosen = 0;
+        pathChosen = 0; //DONT FORGET TO DELETE THIS 
 
 
         if(doors[pathChosen] == 1) //Has a door at the top ---> Pull room from BOTTOM List
@@ -63,8 +63,9 @@ public class RoomHandler : MonoBehaviour
                 return;
             }
 
-            Debug.Log("Check Position: " + positionToCheck);
+            //Debug.Log("Check Position: " + positionToCheck);
             CellHybrid cellToCheck = grid.FindCell(positionToCheck);
+            //Debug.Log("Checked Cell: " + cellToCheck);
 
             if(cellToCheck.taken)
             {
