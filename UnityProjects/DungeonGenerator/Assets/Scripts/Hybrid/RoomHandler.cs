@@ -41,14 +41,16 @@ public class RoomHandler : MonoBehaviour
         {
             if(isSpawn && doors.Count <= 0)
             {
+                Debug.Log("Spawen has no doors");
                 return;
-            }
+            }   
+            Debug.Log("Went into spawnroom: " + grid.spawnRoom.doors.Count);
             grid.spawnRoom.ChoosePath();
             return;
         }
         int pathChosen = Random.Range(0, doors.Count);
 
-        pathChosen = 0; //DONT FORGET TO DELETE THIS 
+        if(isSpawn)Debug.Log("Path Chosen: " + doors[pathChosen]);
 
 
         if(doors[pathChosen] == 1) //Has a door at the top ---> Pull room from BOTTOM List
@@ -75,7 +77,7 @@ public class RoomHandler : MonoBehaviour
             {
                 if(cellToCheck.LookForNeighbourRooms(3, grid))
                 {
-                    SpawnDoor(1);
+                    SpawnDoor(1); //probelm here
                     cellToCheck.Occupy();
                 } else {
                     SpawnRoom(3, cellToCheck); //Spawn room from bottom pool (pool 3)
@@ -114,6 +116,7 @@ public class RoomHandler : MonoBehaviour
             if(positionToCheck.y < 0 || positionToCheck.y >= grid.GetGridHeight())
             {
                 SpawnDoor(3);
+                
                 return;
             }
 
@@ -205,6 +208,8 @@ public class RoomHandler : MonoBehaviour
             door.transform.position = transform.position + new Vector3(-9.5f, 2.5f, 0);
             door.transform.parent = transform;
         }
+
+        DoorDone(pos);
     }
 
     public void SpawnRoom(int doorNeeded, CellHybrid cellPosition)
@@ -272,31 +277,38 @@ public class RoomHandler : MonoBehaviour
                 Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x, roomCell.gridPosition.y + 1);
 
                 //if position to check is outside boundaries (x > || < width) || (y > || < height) ---> do nothing for this wall
-                // if(positionToOccupy.x > width || positionToOccupy.x < width)
-                // {
-                    
-                // }
-
-                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
-                cellToOccupy.Occupy();
-
+                if(positionToOccupy.y < grid.height)
+                {
+                    CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                    cellToOccupy.Occupy();
+                }
             } else if(wall == 2) //Occupy one right
             {
                 Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x + 1, roomCell.gridPosition.y);
-                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
-                cellToOccupy.Occupy();
-
+                
+                if(positionToOccupy.x < grid.width)
+                {
+                    CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                    cellToOccupy.Occupy();
+                }
             } else if(wall == 3) // occupy one below
             {
                 Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x, roomCell.gridPosition.y - 1);
-                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
-                cellToOccupy.Occupy();
 
+                if(positionToOccupy.y >= 0)
+                {
+                    CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                    cellToOccupy.Occupy();
+                }
             }else if(wall == 4) //Occupy one Left
             {
                 Vector2 positionToOccupy = new Vector2(roomCell.gridPosition.x - 1, roomCell.gridPosition.y);
-                CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
-                cellToOccupy.Occupy();
+
+                if(positionToOccupy.x >= 0)
+                {
+                    CellHybrid cellToOccupy = grid.FindCell(positionToOccupy);
+                    cellToOccupy.Occupy();
+                }
             }
         }
     }

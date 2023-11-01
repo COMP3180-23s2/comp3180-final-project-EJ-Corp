@@ -48,7 +48,6 @@ public class CellHybrid : MonoBehaviour
 
     public bool LookForNeighbourRooms(int originPos, GridGen grid)
     {
-        Debug.Log("Looking for Neighbours - Origin: " + originPos);
         Vector2 placeToCheck;
         if(originPos == 1) //Room Originated from Top
         {
@@ -57,26 +56,38 @@ public class CellHybrid : MonoBehaviour
                 if(i == 0) //Check Right side
                 {
                     placeToCheck = gridPosition + new Vector2(1, 0);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.x < grid.width)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 } else if(i == 1) //Check Bottom SIde
                 {
                     placeToCheck = gridPosition + new Vector2(0, -1);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.y >= 0)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 } else if(i == 2) //Check Left side
                 {
                     placeToCheck = gridPosition + new Vector2(-1, 0);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.x >= 0)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 }
             }
@@ -88,26 +99,38 @@ public class CellHybrid : MonoBehaviour
                 if(i == 0) //Check Bottom side
                 {
                     placeToCheck = gridPosition + new Vector2(0, -1);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.y >= 0)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 } else if(i == 1) //Check Left SIde
                 {
                     placeToCheck = gridPosition + new Vector2(-1, 0);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.x >= 0)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 } else if(i == 2) //Check Top side
                 {
                     placeToCheck = gridPosition + new Vector2(0, 1);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.y < grid.height)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 }
             }
@@ -119,27 +142,42 @@ public class CellHybrid : MonoBehaviour
                 if(i == 0) //Check Left side
                 {
                     placeToCheck = gridPosition + new Vector2(-1, 0);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.x >= 0)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
+                    
                 } else if(i == 1) //Check Top SIde
                 {
                     placeToCheck = gridPosition + new Vector2(0, 1);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.y < grid.height)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
+                    
                 } else if(i == 2) //Check Right side
                 {
                     placeToCheck = gridPosition + new Vector2(1, 0);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.x < grid.width)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
+                    
                 }
             }
             return false;
@@ -150,26 +188,38 @@ public class CellHybrid : MonoBehaviour
                 if(i == 0) //Check Top side
                 {
                     placeToCheck = gridPosition + new Vector2(0, 1);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.y < grid.height)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 } else if(i == 1) //Check Right SIde
                 {
                     placeToCheck = gridPosition + new Vector2(1, 0);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.x < grid.width)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 } else if(i == 2) //Check Bottom side
                 {
                     placeToCheck = gridPosition + new Vector2(0, -1);
-                    CellHybrid checkedCell = grid.FindCell(placeToCheck);
-                    if(checkedCell.hasRoom) //Found room in neighbor
+
+                    if(placeToCheck.y >= 0)
                     {
-                        return true;
+                        CellHybrid checkedCell = grid.FindCell(placeToCheck);
+                        if(checkedCell.hasRoom) //Found room in neighbor
+                        {
+                            return true;
+                        }
                     }
                 }
             }

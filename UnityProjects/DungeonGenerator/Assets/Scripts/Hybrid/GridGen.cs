@@ -8,8 +8,8 @@ public class GridGen : MonoBehaviour
 {
     [SerializeField] private CellHybrid spawnPoints;
     [SerializeField] private RoomHandler spawnRoomPrefab;
-    [SerializeField] private int width;
-    [SerializeField] private int height;
+    [SerializeField] public int width;
+    [SerializeField] public int height;
     [SerializeField] private int spreadOffset;
     [SerializeField] private CellHybrid middleCell;
     [SerializeField] private List<CellHybrid> cellCollection;
