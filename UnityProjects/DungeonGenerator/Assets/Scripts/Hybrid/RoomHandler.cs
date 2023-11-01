@@ -102,10 +102,16 @@ public class RoomHandler : MonoBehaviour
             {
                 SpawnDoor(2); //Spawn a door on pos 2 == RIGHT
                 
-            } else 
+            } else if(cellToCheck.taken == false)
             {
-                SpawnRoom(4, cellToCheck); //Spawn room from left pool (pool 4)
-                
+                if(cellToCheck.LookForNeighbourRooms(4, grid))
+                {
+                    SpawnDoor(2);
+                    cellToCheck.Occupy();
+                } else 
+                {
+                    SpawnRoom(4, cellToCheck); //Spawn room from left pool (pool 4)
+                }
             }
 
         } else if(doors[pathChosen] == 3) //Has a door at the bottom ---> Pull room from TOP List
@@ -156,10 +162,16 @@ public class RoomHandler : MonoBehaviour
             {
                 SpawnDoor(4); //Spawn a door on pos 2 == LEFT
                 
-            } else 
+            } else if(cellToCheck.taken == false)
             {
-                SpawnRoom(2, cellToCheck); //Spawn room from Right pool (pool 2)
-                
+                if(cellToCheck.LookForNeighbourRooms(2, grid))
+                {
+                    SpawnDoor(4);
+                    cellToCheck.Occupy();
+                } else 
+                {
+                    SpawnRoom(2, cellToCheck); //Spawn room from Right pool (pool 2)
+                }
             }
         }
         
