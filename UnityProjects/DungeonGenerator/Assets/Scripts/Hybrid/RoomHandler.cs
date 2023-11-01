@@ -210,6 +210,7 @@ public class RoomHandler : MonoBehaviour
         }
 
         DoorDone(pos);
+        grid.spawnRoom.ChoosePath();
     }
 
     public void SpawnRoom(int doorNeeded, CellHybrid cellPosition)
