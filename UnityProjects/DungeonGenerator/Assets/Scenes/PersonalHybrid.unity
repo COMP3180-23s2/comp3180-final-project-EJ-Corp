@@ -617,11 +617,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4896432913534240357, guid: 57d1eeed3e45b0e4ea65db2c8b58f82c, type: 3}
       propertyPath: width
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4896432913534240357, guid: 57d1eeed3e45b0e4ea65db2c8b58f82c, type: 3}
       propertyPath: height
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4896432913534240358, guid: 57d1eeed3e45b0e4ea65db2c8b58f82c, type: 3}
       propertyPath: m_RootOrder
