@@ -48,6 +48,9 @@ MonoBehaviour:
   spawnRoomPrefab: {fileID: 7069608735854431535, guid: 56c8fff95b9f00444ac689c608b9ba0b, type: 3}
   width: 10
   height: 10
-  spreadOffset: 25
+  spreadOffset: 22
   middleCell: {fileID: 0}
   cellCollection: []
+  spawnRoom: {fileID: 0}
+  roomCollection: []
+  cells: {fileID: 0}
