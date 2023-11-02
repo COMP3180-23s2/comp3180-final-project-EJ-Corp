@@ -41,17 +41,12 @@ public class RoomHandler : MonoBehaviour
         {
             if(isSpawn && doors.Count <= 0)
             {
-                Debug.Log("Spawen has no doors");
                 return;
             }   
-            Debug.Log("Went into spawnroom: " + grid.spawnRoom.doors.Count);
             grid.spawnRoom.ChoosePath();
             return;
         }
         int pathChosen = Random.Range(0, doors.Count);
-
-        if(isSpawn)Debug.Log("Path Chosen: " + doors[pathChosen]);
-
 
         if(doors[pathChosen] == 1) //Has a door at the top ---> Pull room from BOTTOM List
         {
