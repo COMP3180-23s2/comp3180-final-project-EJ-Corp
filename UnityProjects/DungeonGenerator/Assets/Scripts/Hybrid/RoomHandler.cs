@@ -22,16 +22,12 @@ public class RoomHandler : MonoBehaviour
         grid = GameObject.FindGameObjectWithTag("Grid").GetComponent<GridGen>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Submit"))
         {
+            Debug.Log("Pessed 1");
             ChoosePath();
-        }
-        if(Input.GetButtonDown("1"))
-        {
-
         }
     }
 
@@ -236,6 +232,8 @@ public class RoomHandler : MonoBehaviour
             newRoom.ChoosePath();
             newRoom.roomCell.LogRoom();
 
+            grid.roomCollection.Add(newRoom);
+
         } else if(doorNeeded == 2) //Right Pool (Room has door on right side)
         {
             RoomHandler newRoom = Instantiate(TemplateRooms.Templates.rightRooms[roomRoll]);
@@ -247,6 +245,8 @@ public class RoomHandler : MonoBehaviour
             DoorDone(4);
             newRoom.DoorDone(2);
             newRoom.ChoosePath();
+
+            grid.roomCollection.Add(newRoom);
 
         } else if(doorNeeded == 3) //Bottom Pool (Room has door on bottom side)
         {
@@ -260,6 +260,8 @@ public class RoomHandler : MonoBehaviour
             newRoom.DoorDone(3);
             newRoom.ChoosePath();
 
+            grid.roomCollection.Add(newRoom);
+
         } else if(doorNeeded == 4) //Left Pool (Room has a door on left side)
         {
             RoomHandler newRoom = Instantiate(TemplateRooms.Templates.leftRooms[roomRoll]);
@@ -271,6 +273,8 @@ public class RoomHandler : MonoBehaviour
             DoorDone(2);
             newRoom.DoorDone(4);
             newRoom.ChoosePath();
+
+            grid.roomCollection.Add(newRoom);
         }
 
         
