@@ -231,5 +231,24 @@ https://forms.gle/3mnZT8f9EUahYTKz7
 
 ## Week 12 - Evaluation
 
+Link to hybrid approach eval:
+
+https://forms.gle/LFkKLrBBF98ypHwf7
+
 ## Week 13 - Finalising your Project Report and Deliverables
 
+**OVERSCOPED**
+
+During this week I quickly realised how I overscoped. Getting my hybrid proc gen algortihm to work as intended took longer than expected, with mutiple bugs showing up one after another. This week was mostly spent polishing the generation algorithm and preparing the video material, needed for the video description of the project.
+
+**Plan - Moving Forward:**
+
+Finish up the video explaining the way the generation algorithm works, showing a detailed sample scenario which demostrates each step / iteration of the algorithm.
+
+Write up the report.
+
+*IF TIME ALLOWS:*
+
+Go back into development and develop the population algorithm based off of difficulty.
+
+**Be careful** with developing too much without going back into the report / video and updating it - don't want to spend too much time developing and not have time to document it. As far as evaluating the population algorithm, there won't be enough time for external testing.
