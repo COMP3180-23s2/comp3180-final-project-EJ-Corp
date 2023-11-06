@@ -576,7 +576,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   checkHolder: {fileID: 0}
-  isWall: 1
   checkers:
   - {fileID: 5171602534978942787}
   - {fileID: 6106918037995367578}
@@ -587,9 +586,10 @@ MonoBehaviour:
   - {fileID: 1437186303699275184}
   - {fileID: 674239874973540196}
   neighbourWallCount: 0
-  wallColor: {r: 0, g: 0, b: 0, a: 1}
-  floorColor: {r: 1, g: 1, b: 1, a: 1}
+  wallColor: {r: 0, g: 1, b: 1, a: 1}
+  floorColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   cellState: 0
+  nextState: 0
 --- !u!1 &4687162956199422896
 GameObject:
   m_ObjectHideFlags: 0
