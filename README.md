@@ -1,6 +1,6 @@
 # COMP3180-final-project
 
-Included is a rough timeline below. Fill this in from week to week to show your progress throughout semester.
+Final Submission for COMP3180.
 
 ## Week 1 - Selecting a Project
 
