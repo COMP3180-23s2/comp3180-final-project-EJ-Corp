@@ -27,7 +27,7 @@ public class RoomHandler : MonoBehaviour
         if(Input.GetButtonDown("Submit"))
         {
             Debug.Log("Pessed 1");
-            ChoosePath();
+            grid.EnqueueRoom(this);
         }
     }
 
@@ -213,7 +213,8 @@ public class RoomHandler : MonoBehaviour
         }
 
         DoorDone(pos);
-        grid.spawnRoom.ChoosePath();
+        grid.EnqueueRoom(grid.spawnRoom);
+
     }
 
     public void SpawnRoom(int doorNeeded, CellHybrid cellPosition)
@@ -229,7 +230,7 @@ public class RoomHandler : MonoBehaviour
 
             DoorDone(3);
             newRoom.DoorDone(1);
-            newRoom.ChoosePath();
+            grid.EnqueueRoom(newRoom);
             newRoom.roomCell.LogRoom();
 
             grid.roomCollection.Add(newRoom);
@@ -244,7 +245,7 @@ public class RoomHandler : MonoBehaviour
 
             DoorDone(4);
             newRoom.DoorDone(2);
-            newRoom.ChoosePath();
+            grid.EnqueueRoom(newRoom);
 
             grid.roomCollection.Add(newRoom);
 
@@ -258,7 +259,7 @@ public class RoomHandler : MonoBehaviour
 
             DoorDone(1);
             newRoom.DoorDone(3);
-            newRoom.ChoosePath();
+            grid.EnqueueRoom(newRoom);
 
             grid.roomCollection.Add(newRoom);
 
@@ -272,7 +273,7 @@ public class RoomHandler : MonoBehaviour
 
             DoorDone(2);
             newRoom.DoorDone(4);
-            newRoom.ChoosePath();
+            grid.EnqueueRoom(newRoom);
 
             grid.roomCollection.Add(newRoom);
         }

@@ -20,9 +20,13 @@ public class GridGen : MonoBehaviour
 
     private bool newLevel;
     [SerializeField] private GameObject cells;
-    
 
-    
+
+    private Queue<RoomHandler> roomQueue = new Queue<RoomHandler>();
+    private bool spawning = false;
+
+    [SerializeField] private float delayBetweenSpawns = 0.15f; // tweak this for recording
+
     void Awake()
     {
         GenerateGrid();
@@ -31,27 +35,14 @@ public class GridGen : MonoBehaviour
     void Start()
     {
         SpawnFirstRoom();
-        spawnRoom.ChoosePath();
-        
+        EnqueueRoom(spawnRoom);
+
     }
 
     void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            // foreach(RoomHandler room in roomCollection)
-            // {
-            //     Destroy(room.gameObject);
-            // }
-
-            // foreach(Transform child in cells.transform)
-            // {
-            //     Destroy(child.gameObject);
-            // }
-
-            // GenerateGrid();
-            // SpawnFirstRoom();
-            // newLevel = true;
             Scene scene = SceneManager.GetActiveScene();
 
             SceneManager.LoadScene(scene.name);
@@ -60,10 +51,10 @@ public class GridGen : MonoBehaviour
 
     public void GenerateGrid()
     {
-        Vector2 middlePos = new Vector2(width/2, height/2);
-        for(int i = 0; i < width; i++)
+        Vector2 middlePos = new Vector2(width / 2, height / 2);
+        for (int i = 0; i < width; i++)
         {
-            for(int j = 0; j < height; j++)
+            for (int j = 0; j < height; j++)
             {
                 Vector3 currentPos = new Vector3(i * spreadOffset, 1, j * spreadOffset);
                 CellHybrid spawnPoint = Instantiate(spawnPoints);
@@ -72,7 +63,7 @@ public class GridGen : MonoBehaviour
                 spawnPoint.SetPosition(i, j);
                 cellCollection.Add(spawnPoint);
                 spawnPoint.name = i + "," + j;
-                if(i == middlePos.x && j == middlePos.y)
+                if (i == middlePos.x && j == middlePos.y)
                 {
                     middleCell = spawnPoint;
                 }
@@ -90,15 +81,15 @@ public class GridGen : MonoBehaviour
         spawnRoom.SetRoomCell(middleCell);
         spawnRoom.SetGrid(this);
         roomCollection.Add(spawnRoom);
-        
+
     }
 
     public CellHybrid FindCell(Vector2 position)
     {
         //Debug.Log("Finding Cell: " + position);
-        foreach(CellHybrid cell in cellCollection)
+        foreach (CellHybrid cell in cellCollection)
         {
-            if(cell.gridPosition == position)
+            if (cell.gridPosition == position)
             {
                 return cell;
             }
@@ -116,4 +107,28 @@ public class GridGen : MonoBehaviour
     {
         return height;
     }
+
+    public void EnqueueRoom(RoomHandler room)
+    {
+        roomQueue.Enqueue(room);
+        if (!spawning)
+        {
+            StartCoroutine(ProcessRoomQueue());
+        }
+    }
+    
+    private IEnumerator ProcessRoomQueue()
+    {
+        spawning = true;
+
+        while (roomQueue.Count > 0)
+        {
+            RoomHandler room = roomQueue.Dequeue();
+            yield return new WaitForSeconds(delayBetweenSpawns);
+            room.ChoosePath();
+        }
+
+        spawning = false;
+    }
+
 }
