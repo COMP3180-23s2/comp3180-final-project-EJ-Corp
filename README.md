@@ -1,4 +1,4 @@
-# COMP3180-final-project
+# COMP3180-final-project - Edgar Murga
 
 Final Submission for COMP3180.
 
